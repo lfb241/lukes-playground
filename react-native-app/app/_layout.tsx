@@ -1,14 +1,20 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { Colors } from '@/constants/Colors';
+import { useColorScheme } from '@/hooks/useColorScheme.web';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+
+/*
+main rooting
+*/
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
+
+  const colorScheme = useColorScheme(); // use different color schemes
+
+  const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;  
+
+  const [loaded] = useFonts({ //Destructuring -> useFonts returns array with boolean that is saved in [loaded] 
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
@@ -17,15 +23,14 @@ export default function RootLayout() {
     return null;
   }
 
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-        {/* <Stack.Screen name="index" options={{ title: "Home", headerShown: false}}/>
-        <Stack.Screen name="search" options={{ title: "Search"}}/> */}
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+  // Only two possible screens on Stack: routes from (tabs) or +not-found
+  return ( 
+    <Stack screenOptions={{ headerStyle: {backgroundColor: theme.headerBackground, }, headerTintColor: theme.text, headerShadowVisible: false}}>
+      
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> 
+      
+      <Stack.Screen name="+not-found" />
+      
+    </Stack>
   );
 }
