@@ -16,7 +16,7 @@ This acts as the layout and contains the implicit <Slot /> for screens.
 
 export default function TabLayout() {
 
-  const colorScheme = useColorScheme(); // use different color schemes
+  const colorScheme = useColorScheme(); // use different color schemes  // FIXME - log error at first rendering on mobile
 
   const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;  
 

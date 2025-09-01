@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { FlatList, ImageBackground, Platform, SafeAreaView, ScrollView, Text, TextInput, View } from 'react-native';
 const background = require('@/assets/images/background.jpeg')
 
-// FIXME Compression of Components on top because of FlatList
+// FIXME - Compression of Components on top because of FlatList
 
 
 
@@ -34,7 +34,7 @@ const Search = () => {
     React.useCallback(() => { // callback verhindert new creation of function at rendering
       setText('');
       resetResults()
-    }, [])
+    },[])  // FIXME - Maximum update depth exceeded when giving the deps.
   );
 
   return (

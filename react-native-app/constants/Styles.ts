@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     width: '100%',
     paddingHorizontal: 64,
+    justifyContent: 'center'
   },
   input: {
     height: 40,

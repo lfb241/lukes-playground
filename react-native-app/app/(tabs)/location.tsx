@@ -1,12 +1,18 @@
-import { ThemedView } from '@/components/ThemedView'
-import styles from '@/constants/Styles'
-import React from 'react'
-import { ImageBackground, Text } from 'react-native'
+import { ThemedView } from '@/components/ThemedView';
+import styles from '@/constants/Styles';
+import * as Location from 'expo-location';
+import React, { useState } from 'react';
+import { ImageBackground, Text } from 'react-native';
 
 const background = require('@/assets/images/background.jpeg')
 
 
-const location = () => {
+const Location = () => {
+
+  const [location, setLocation] = useState<Location.LocationObject | null>(null)
+
+  useEffect
+
   return (
     <ThemedView style={styles.container}>
 
