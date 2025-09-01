@@ -29,7 +29,7 @@ const app  = () => {
           
           <LinkButton link ="/camera" label="Camera"/>
           
-          <LinkButton link ="/location" label="Location"/>
+          <LinkButton link ="/geoloc" label="Location"/>
 
 
       </ImageBackground>

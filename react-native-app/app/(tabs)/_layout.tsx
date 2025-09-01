@@ -57,7 +57,7 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="location"
+        name="geoloc"
         options={{
           title: 'Location',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="seal" color={color} />,
