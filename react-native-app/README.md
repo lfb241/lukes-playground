@@ -4,6 +4,8 @@
 - [ ] 2 Branches und auf einem sicherheitskritische Deps und dann Dependabot auf beide Branches loslassen (dependabot.yaml)
 - [ ] DB-Dump
 - [ ] https://www.youtube.com/watch?v=sm5Y7Vtuihg
+- [ ] Documentation
+- [ ] Local building action
 
 ### Funktionen
 - Suchfunktion mit fetch von PuchChem API
