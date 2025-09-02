@@ -16,11 +16,16 @@ jobs:
         with:
           node-version: 18.x
           # cache: npm
+          
+      - name: Show repo files
+        run: ls -R
+        
       - name: Setup EAS 
         uses: expo/expo-github-action@8.2.1
         with:
           eas-version: latest
           token: ${{ secrets.EXPOTOKEN }}
+          packager: npm
       - name: Install dependencies
         run: npm install
       - name: Build app
