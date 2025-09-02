@@ -1,21 +1,32 @@
-# How to get started
-**ExpoGo with USB:**
-To start dev Server, run `npx expo start --localhost`
-Press `a` on the Terminal
+### To Do
+- [ ] Zugriff auf Geodaten
+- [ ] Submit Picture
+- [ ] 2 Branches und auf einem sicherheitskritische Deps und dann Dependabot auf beide Branches loslassen (dependabot.yaml)
+- [ ] DB-Dump
+- [ ] https://www.youtube.com/watch?v=sm5Y7Vtuihg
 
-adb reverse tcp:8081 tcp:8081 um Android-Gerät oer USB mit Rechner zu verbinden (USB-Tunnel)
+### Funktionen
+- Suchfunktion mit fetch von PuchChem API
+- Kamerafunktion mit Flip-Button
 
-**build .apk**
+### How to get it started
 
-`npx expo prebuild`
-`./gradlew assembleRelease
-hat nüsch geklappt
+#### Prerequisites
+- Node.js
+- npm/Yarn
+- Expo-Cli: `npm install -g expo-cli`
+- ExpoGo-App on your mobile device
+#### Install deps
+`npm install` / `yarn install`
 
 
-`npx eas-cli@latest` => `eas-cli@16.18.0`
+To start development server, run `expo start`
 
-`npx eas-cli login`
+Follow the instructions on terminal
 
-`eas build:configure`
+#### USB-Tunnel
+If you want to use ExpoGo offline with usb:
 
-https://docs.expo.dev/tutorial/eas/android-development-build/
+`adb devices` to check if device is connected
+
+`adb reverse tcp:8081 tcp:8081` for USB-Tunneling 
