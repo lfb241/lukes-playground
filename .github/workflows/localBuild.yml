@@ -37,6 +37,12 @@ jobs:
       - name: List root directory
         run: ls -la
 
+      - name: Check android folder content
+        run: |
+          cd android
+          ls -la
+
+
       - name: Make gradlew executable
         run: chmod +x ./android/gradlew
 
