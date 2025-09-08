@@ -1,8 +1,6 @@
 on:
   push:
     branches:
-      - main
-      - trying-actions
 
 jobs:
   build:
