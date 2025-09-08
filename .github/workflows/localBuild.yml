@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: github-actions/upload-artifact@v2
+      - name: Checkout code  
+        uses: actions/checkout@v5.0.0
 
       - name: Setup Node
         uses: actions/setup-node@v3
