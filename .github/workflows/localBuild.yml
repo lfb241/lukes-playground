@@ -39,7 +39,7 @@ jobs:
 
       - name: Check android folder content
         run: |
-          cd android
+          cd ./react-native-app/android
           ls -la
 
 
