@@ -25,22 +25,24 @@ jobs:
 
       - name: Install Expo CLI
         run: npm install -g expo-cli
-
-      - name: Install project dependencies
+        
+      - name: Install dependencies
+        working-directory: ./react-native-app
         run: npm install
 
       - name: Expo Prebuild (Android only)
+        working-directory: ./react-native-app
         run: npx expo prebuild --platform android --no-install
 
       - name: Make gradlew executable
-        run: chmod +x ./android/gradlew
+        run: chmod +x ./react-native.app/android/gradlew
 
       - name: Build APK
-        working-directory: android
+        working-directory: ./react-native.app/android
         run: ./gradlew assembleRelease
         
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-release.apk
-          path: android/app/build/outputs/apk/release/app-release.apk
+          path: ./react-native.app/android/app/build/outputs/apk/release/app-release.apk
