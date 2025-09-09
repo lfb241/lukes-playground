@@ -47,7 +47,7 @@ jobs:
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: README.md
+          name: app-release
           path: ./react-native-app/android/app/build/outputs/apk/release/app-release.apk
 
       - name: Install GitHub CLI
