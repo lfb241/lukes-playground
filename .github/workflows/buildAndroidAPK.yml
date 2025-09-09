@@ -6,7 +6,6 @@ on:
 permissions:
   contents: write
 
-
 jobs:
   build:
     name: Prebuild & Build APK
@@ -41,15 +40,15 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./react-native-app/android/gradlew
 
-      #- name: Build APK
-      #  working-directory: ./react-native-app/android
-      #  run: ./gradlew assembleRelease
+      - name: Build APK
+        working-directory: ./react-native-app/android
+        run: ./gradlew assembleRelease
         
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: README.md
-          path: ./react-native-app/README.md
+          path: ./react-native-app/android/app/build/outputs/apk/release/app-release.apk
 
       - name: Install GitHub CLI
         run: sudo apt-get install gh -y
@@ -59,7 +58,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG="release-$(date +'%Y%m%d%H%M%S')"
-          APK_PATH="./react-native-app/README.md"
+          APK_PATH="./react-native-app/android/app/build/outputs/apk/release/app-release.apk"
           
           # Create a release with a unique timestamp-based tag
           gh release create "$TAG" "$APK_PATH" \
