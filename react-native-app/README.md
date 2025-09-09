@@ -1,15 +1,12 @@
 ### To Do
-- [ ] Zugriff auf Geodaten
+- [ ] Verarbeitung von Geodaten
 - [ ] Submit Picture
-- [ ] 2 Branches und auf einem sicherheitskritische Deps und dann Dependabot auf beide Branches loslassen (dependabot.yaml)
-- [ ] DB-Dump
-- [ ] https://www.youtube.com/watch?v=sm5Y7Vtuihg
 - [x] Documentation
 - [x] Local building action
     - [x] add gh release create to actions
 
 ### Funktionen
-- Suchfunktion mit fetch von PuchChem API
+- Suchfunktion mit PubChem API
 - Kamerafunktion mit Flip-Button
 - local building with github release
 
@@ -22,7 +19,6 @@
 - ExpoGo-App on your mobile device
 #### Install deps
 `npm install` / `yarn install`
-
 
 To start development server, run `expo start`
 
