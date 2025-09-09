@@ -1,9 +1,9 @@
-import LinkButton from '@/components/LinkButton'
-import { ThemedText } from '@/components/ThemedText'
-import styles from '@/constants/Styles'
-import { Text } from '@react-navigation/elements'
-import React from 'react'
-import { ImageBackground, View } from 'react-native'
+import LinkButton from '@/components/LinkButton';
+import { ThemedText } from '@/components/ThemedText';
+import styles from '@/constants/Styles';
+import { Text } from '@react-navigation/elements';
+import React from 'react';
+import { ImageBackground, View } from 'react-native';
 
 const background = require('@/assets/images/background.jpeg')
 
@@ -26,7 +26,7 @@ const app  = () => {
           <Text style={styles.textBack}>Your App to explore Chemistry</Text>
           
           <LinkButton link ="/search" label="Search"/>
-          
+
           <LinkButton link ="/camera" label="Camera"/>
           
           <LinkButton link ="/geoloc" label="Location"/>
