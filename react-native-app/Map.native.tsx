@@ -2,7 +2,7 @@
 import * as Location from 'expo-location';
 import React, { useEffect, useState } from 'react';
 import { Text } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, { UrlTile } from 'react-native-maps';
 
 export default function Map() {
 
@@ -39,12 +39,12 @@ export default function Map() {
       
       style={{ flex: 1 }}
     >
-    {/*<UrlTile
-        urlTemplate="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    <UrlTile
+        urlTemplate="http://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
         maximumZ={19}
         tileSize={256}
         flipY={false}
-    />{*/}
+    />
 
     </MapView>
   )
