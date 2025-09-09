@@ -2,8 +2,13 @@ import { ThemedView } from '@/components/ThemedView';
 import styles from '@/constants/Styles';
 import * as Location from 'expo-location';
 import React, { useEffect, useState } from 'react';
-import { ImageBackground, Text, View } from 'react-native';
-import MapView from 'react-native-maps';
+import { ImageBackground, Platform, Text, View } from 'react-native';
+import MapView, { UrlTile } from 'react-native-maps';
+
+
+// FIXME Ugly workaround for being able to debug in web
+
+
 
 
 const background = require('@/assets/images/background.jpeg')
@@ -35,7 +40,8 @@ const GeoLoc = () => {
 
   if(errorMsg) {
     return <Text>{errorMsg}</Text>
-  } else if (location) {
+
+  } else if (location && Platform.OS === 'web') {
     return(
     <MapView
       region={{
@@ -44,15 +50,25 @@ const GeoLoc = () => {
         longitudeDelta: 0.1,
         latitudeDelta: 0.1,
       }}
+      
       style={{ flex: 1 }}
-    />
+    >
+        <UrlTile
+          urlTemplate="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          maximumZ={19}
+          tileSize={256}
+          flipY={false}
+        />
+
+    </MapView>
   )
     }
-    return null
 
+    return null
   }
 
   return (
+    
     <ThemedView style={styles.container}>
 
       <ImageBackground
