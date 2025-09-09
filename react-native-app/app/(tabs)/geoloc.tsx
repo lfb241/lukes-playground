@@ -2,7 +2,7 @@ import { ThemedView } from '@/components/ThemedView';
 import styles from '@/constants/Styles';
 import * as Location from 'expo-location';
 import React, { useEffect, useState } from 'react';
-import { ImageBackground, View } from 'react-native';
+import { ImageBackground, Text, View } from 'react-native';
 import MapView from 'react-native-maps';
 
 
@@ -34,7 +34,7 @@ const GeoLoc = () => {
   const renderMap = () => {
 
   if(errorMsg) {
-    return errorMsg
+    return <Text>{errorMsg}</Text>
   } else if (location) {
     return(
     <MapView
@@ -48,6 +48,7 @@ const GeoLoc = () => {
     />
   )
     }
+    return null
 
   }
 
@@ -58,7 +59,7 @@ const GeoLoc = () => {
         source={background}
         resizeMode='cover'
         style={styles.image}>
-          <View>
+          <View style={{flex:1}}>
           {renderMap()}
           </View>
 
