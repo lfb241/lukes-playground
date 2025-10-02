@@ -1,4 +1,5 @@
 import { toDoType } from "@/constants/Types";
+import { data } from "@/data/todos.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -11,20 +12,19 @@ import {
   View,
 } from "react-native";
 
-
-
 export default function Index() {
   const [text, setText] = useState("");
   const [task, setTask] = useState<toDoType[]>([])
   const [refresh, setRefresh] = useState(false)
+  const [todos, setTodos] = useState(data)
 
+//GET-Anfrage mit Axios
 
-//GET-Anfrage
   useEffect(()=>{
     axios.get("http://localhost:3001/tasks")
     .then(function(response){
       setTask(response.data)
-    })
+    })  
     .catch(function(error){
       console.log(error)
 
@@ -32,30 +32,48 @@ export default function Index() {
     },[refresh])
 
 
-  //POST-Anfrage
+  //POST-Anfrage mit Axios
   const createToDo = () => {
     axios.post("http://localhost:3001/tasks", {
-      title: text, id: (task.length+1), completed: false
+      title: text, id: (task.length>0 ? task[task.length-1].id+1 : 1), completed: false
     }).then(function (response){
       console.log(response);
       setRefresh(prev => !prev)
     })}
 
+  // POST-Anfrage ohne Axios
+  const addToDO = () => {
+    if (text.trim()){
+      const newID = todos.length>0 ? todos[todos.length-1].id +1 : 1;
+      setTodos([{ id: newID, title: text, completed: false}, ...todos])
+      setText("")  
+    }
+  }
 
-  //PATCH-Anfrage
-  const changeCompletion = (completed: boolean, id:string) =>{
+
+  //PATCH-Anfrage mit Axios
+  const changeCompletion = (completed: boolean, id:number) =>{
   axios.patch(`http://localhost:3001/tasks/${id}`, {
     completed: !completed
   }).then(() => {
     setRefresh(prev => !prev);
   })}
 
-  //DELETE-Anfrage
+  //PATCH-Anfrage ohne Axios
+  const toggleCompletion = (id: number) => {
+    setTodos(todos.filter(todo =>
+      todo.id !== id))
+  } 
+
+
+  const removeToDo = (id:number) => {
+    setTodos(todos.filter(todo => todo.id !==id ))
+  }
+
+  //DELETE-Anfrage mit Axios
   const deleteToDo = async () => {
     try {
       const completedTasks = task.filter(t => t.completed);
-
-
       for (const t of completedTasks) {
         await axios.delete(`http://localhost:3001/tasks/${t.id}`);}
       
@@ -79,13 +97,13 @@ export default function Index() {
       <View style={styles.listContainer}>
       <FlatList
         style={{}}
-        data={task}
+        data={todos}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
             <Text style={styles.listText}>
               {item.title}
             </Text>
-            <TouchableOpacity style={styles.listButtonDone} onPress={()=> changeCompletion(item.completed, item.id)}>
+            <TouchableOpacity style={styles.listButtonDone} onPress={()=> toggleCompletion(item.id)}>
               <Text> {item.completed? "x" : ""}</Text>
             </TouchableOpacity>
           </View>  

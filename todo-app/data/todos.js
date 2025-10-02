@@ -1,5 +1,4 @@
-{
-  "tasks": [
+export const data = [
     {
       "id": 3,
       "title": "Clean the apartment",
@@ -10,10 +9,4 @@
       "title": "Call mom",
       "completed": false
     },
-    {
-      "id": 5,
-      "title": "Prepare presentation for Monday",
-      "completed": false
-    }
-  ]
-}
+]
