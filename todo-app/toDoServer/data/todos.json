@@ -1,0 +1,58 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Finish reading book",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "title": "Buy groceries",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "title": "Clean the apartment",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "title": "Call mom",
+      "completed": true
+    },
+    {
+      "id": 5,
+      "title": "Prepare presentation for Monday",
+      "completed": false
+    },
+    {
+      "id": 6,
+      "title": "Workout for 30 minutes",
+      "completed": true
+    },
+    {
+      "id": 7,
+      "title": "Send emails",
+      "completed": false
+    },
+    {
+      "id": 8,
+      "title": "Book dentist appointment",
+      "completed": true
+    },
+    {
+      "id": 9,
+      "title": "Water the plants",
+      "completed": false
+    },
+    {
+      "id": 10,
+      "title": "Write in journal",
+      "completed": true
+    },
+    {
+      "id": 11,
+      "title": "test",
+      "completed": false
+    }]
+}
