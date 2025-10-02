@@ -62,6 +62,8 @@ Wichtig `useContext`:
 - Für Lifecycle-ähnliche Logik wie Datenladen, Event-Listener oder Cleanup ist `useEffect` das Mittel der Wahl. Achte auf die Abhängigkeiten im Dependency-Array, um unnötige Effekte zu vermeiden.
 
 ## Zugriff auf Kamera/Geodaten
-[https://docs.expo.dev/versions/latest/sdk/camera/](expo-camera) und [https://docs.expo.dev/versions/latest/sdk/location/](expo-location) ermöglichen einfachen Zugriff
+[expo-camera](https://docs.expo.dev/versions/latest/sdk/camera/) und [expo-location](https://docs.expo.dev/versions/latest/sdk/location/) ermöglichen einfachen Zugriff
 
-[https://github.com/react-native-maps/react-native-maps](react-native-maps) bietet cross platform Map-Komponenten
+[react-native-maps](https://github.com/react-native-maps/react-native-maps) bietet cross platform Map-Komponenten
+
+Lokale Speicherung mit AsyncStorage
