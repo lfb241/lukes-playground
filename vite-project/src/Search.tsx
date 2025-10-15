@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, type SetStateAction } from "react";
 //Funktion zum Suchen + Fetchen von Molekülen
 
 
-export default function search() {
+export default function Search() {
 
     const [weight, setWeight] = useState(null); //Veränderbar über setWeight
     const [formula, setFormula] = useState(null); //Veränderbar über setFormula
@@ -12,9 +12,8 @@ export default function search() {
     async function receiveData(cid: string) { // Asynchrone Funkton zur Eingabe von cid und Ausgabe von den Dateien in der Konsole über REST-API von PubChem
         alert(`Suche nach dem Molekül mit CID: '${cid}'`);
         try {
-            typeof cid
-            let query = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/property/MolecularWeight,MolecularFormula/JSON`);
-            let data = await query.json();
+            const query = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/property/MolecularWeight,MolecularFormula/JSON`);
+            const data = await query.json();
             console.log(data.PropertyTable.Properties[0].MolecularFormula);
             setWeight(data.PropertyTable.Properties[0].MolecularWeight);
             setFormula(data.PropertyTable.Properties[0].MolecularFormula);
@@ -28,7 +27,7 @@ export default function search() {
         }
     }
 
-    const xxx = (e) => { setCid(e.target.value) }
+    const xxx = (e: { target: { value: SetStateAction<string>; }; }) => { setCid(e.target.value) }
 
 
 
