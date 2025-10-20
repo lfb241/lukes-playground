@@ -4,9 +4,9 @@ Simple App to learn handling REST-APIs
 - React Native (Expo)
 - Spring Boot 
 ## To Do
-- handle REST-API with Spring
+- [ ] handle REST-API with Spring
 
 ## Features
-- simple ToDo-App
+- add, delete, update Todos
 
 ## How to Get Started
