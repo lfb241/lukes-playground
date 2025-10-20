@@ -1,1 +1,1 @@
-Space for trying out and learning tools and frameworks :) 
+This repository is a sandbox for experimentation, learning, and prototyping.
